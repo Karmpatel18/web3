@@ -9,19 +9,25 @@ import {
     WalletMultiButton
 } from '@solana/wallet-adapter-react-ui';
 import '@solana/wallet-adapter-react-ui/styles.css';
-import Input from './components/Input';
+import RequestAirdrop from './components/RequestAirdrop';
 
 function App() {
   
 
   return (
     <div>
-      <ConnectionProvider endpoint={"https://rough-proportionate-shadow.solana-devnet.quiknode.pro/4bf584907bb8f4013c042f72aa6a4e319a5e05b8/"}>
+      <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
             <WalletProvider wallets={[]} autoConnect>
                 <WalletModalProvider>
-                    <div className="flex flex-col w-full justify-center h-screen items-center">
-                    <WalletMultiButton />
-                    <Input/>
+                    <div className="flex flex-col min-h-screen bg-white w-full  h-screen items-center font-mono">
+                    <div className='w-full flex justify-between mt-12 max-w-2xl px-3 items-center py-3 bg-neutral-50 rounded-lg shadow-md shadow-neutral-200'>
+                      <div className='text-3xl font-bold text-purple-900 tracking-tighter ml-1.5'>Solfaucet</div>
+                      <div><WalletMultiButton /></div>
+                    </div>
+                    
+                    <div className="flex w-full mt-36 justify-center">
+                    <RequestAirdrop/>
+                    </div>
                     </div>
                     
                 </WalletModalProvider>
